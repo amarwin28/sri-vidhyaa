@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, Calendar, Sparkles } from 'lucide-react';
+import { CheckCircle2, Calendar, ArrowUpRight } from 'lucide-react';
 import { SectionHeading } from './SectionHeading';
 import { experienceData } from '../data/experience';
 
@@ -15,14 +15,14 @@ export const Experience: React.FC = () => {
         <SectionHeading
           badge="TRACK RECORD"
           title="Professional Experience"
-          subtitle="Contributing to media growth, data science workflows, artificial intelligence fundamentals, and team leadership."
+          subtitle="Contributing to media growth, brand representation, data science workflows, artificial intelligence fundamentals, and team leadership."
         />
 
         {/* Interactive Horizontal Timeline Bar */}
-        <div className="mb-10 sm:mb-14">
-          <div className="relative flex items-center justify-between pb-2 sm:pb-4 max-w-4xl mx-auto px-2 sm:px-6">
+        <div className="mb-10 sm:mb-14 overflow-x-auto pb-3 -mx-4 px-4 sm:mx-0 sm:px-0">
+          <div className="relative flex items-center justify-between pb-2 sm:pb-4 min-w-[620px] max-w-4xl mx-auto px-4 sm:px-8">
             {/* Horizontal Track Line */}
-            <div className="absolute top-5 sm:top-6 left-6 right-6 h-0.5 sm:h-1 bg-[#DCE7F2] -translate-y-1/2 z-0" />
+            <div className="absolute top-5 sm:top-6 left-8 right-8 h-0.5 sm:h-1 bg-[#DCE7F2] -translate-y-1/2 z-0" />
             
             {experienceData.map((exp, index) => {
               const isSelected = selectedExpId === exp.id;
@@ -47,7 +47,7 @@ export const Experience: React.FC = () => {
                   
                   {/* Organization label below node */}
                   <span
-                    className={`mt-2 text-[10px] sm:text-xs font-semibold tracking-tight transition-colors text-center max-w-[65px] sm:max-w-[120px] truncate sm:overflow-visible ${
+                    className={`mt-2 text-[10px] sm:text-xs font-semibold tracking-tight transition-colors text-center max-w-[80px] sm:max-w-[120px] truncate sm:overflow-visible ${
                       isSelected ? 'text-[#0868E8] font-bold' : 'text-[#64748B] group-hover:text-[#102B66]'
                     }`}
                   >
@@ -83,101 +83,121 @@ export const Experience: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.4, delay: index * 0.08 }}
-                className={`relative rounded-2xl p-6 sm:p-8 transition-all duration-300 cursor-pointer select-none focus:outline-none ${
+                className={`relative rounded-2xl p-6 sm:p-8 transition-all duration-300 cursor-pointer select-none focus:outline-none flex flex-col justify-between ${
                   isDark
                     ? 'bg-[#071B35] text-white border-2 border-[#0868E8] shadow-2xl shadow-[#0868E8]/20 ring-4 ring-[#0868E8]/15 scale-[1.01]'
                     : 'bg-white text-[#102B66] border border-[#DCE7F2] card-shadow hover:card-shadow-hover hover:border-[#0868E8]/40 hover:-translate-y-0.5'
                 }`}
               >
-                {/* Header Tag / Badge & Index */}
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full transition-colors ${
-                        isDark
-                          ? 'bg-[#0868E8]/25 text-[#0868E8] border border-[#0868E8]/40'
-                          : 'bg-[#DCE7F2] text-[#0868E8] font-semibold'
-                      }`}
-                    >
-                      EXPERIENCE 0{index + 1}
-                    </span>
-                    {exp.badge && (
+                <div>
+                  {/* Header Tag / Badge & Index */}
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="flex items-center gap-2">
                       <span
-                        className={`text-xs font-medium px-2.5 py-0.5 rounded-full transition-colors ${
-                          isDark ? 'bg-white/10 text-[#DCE7F2]' : 'bg-gray-100 text-[#64748B]'
+                        className={`text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full transition-colors ${
+                          isDark
+                            ? 'bg-[#0868E8]/25 text-[#0868E8] border border-[#0868E8]/40'
+                            : 'bg-[#DCE7F2] text-[#0868E8] font-semibold'
                         }`}
                       >
-                        {exp.badge}
+                        EXPERIENCE 0{index + 1}
                       </span>
-                    )}
-                  </div>
-
-                  <span
-                    className={`text-xs font-mono font-medium flex items-center gap-1.5 transition-colors ${
-                      isDark ? 'text-[#DCE7F2]/80' : 'text-[#64748B]'
-                    }`}
-                  >
-                    <Calendar className="w-3.5 h-3.5" />
-                    {exp.period}
-                  </span>
-                </div>
-
-                {/* Role & Organization */}
-                <div className="mb-4">
-                  <h3
-                    className={`text-xl sm:text-2xl font-bold tracking-tight transition-colors ${
-                      isDark ? 'text-white' : 'text-[#102B66]'
-                    }`}
-                  >
-                    {exp.role}
-                  </h3>
-                  <div className="flex items-center gap-2 mt-1">
-                    <span className="text-base font-semibold text-[#0868E8]">
-                      {exp.organization}
-                    </span>
-                    {exp.location && (
-                      <span className={`text-xs transition-colors ${isDark ? 'text-[#DCE7F2]/60' : 'text-[#64748B]'}`}>
-                        • {exp.location}
-                      </span>
-                    )}
-                  </div>
-                </div>
-
-                {/* Description */}
-                <p
-                  className={`text-sm sm:text-base leading-relaxed mb-6 transition-colors ${
-                    isDark ? 'text-[#DCE7F2]/90' : 'text-[#64748B]'
-                  }`}
-                >
-                  "{exp.description}"
-                </p>
-
-                {/* Responsibility Highlights */}
-                {exp.responsibilities && exp.responsibilities.length > 0 && (
-                  <div className={`space-y-2.5 pt-4 border-t border-dashed transition-colors ${
-                    isDark ? 'border-white/15' : 'border-gray-200'
-                  }`}>
-                    <h4
-                      className={`text-xs font-bold uppercase tracking-wider font-mono mb-2 transition-colors ${
-                        isDark ? 'text-[#DCE7F2]/60' : 'text-[#64748B]'
-                      }`}
-                    >
-                      Key Responsibilities &amp; Focus
-                    </h4>
-                    {exp.responsibilities.map((resp, rIdx) => (
-                      <div key={rIdx} className="flex items-start gap-2.5">
-                        <CheckCircle2
-                          className="w-4 h-4 mt-0.5 shrink-0 text-[#0868E8]"
-                        />
+                      {exp.badge && (
                         <span
-                          className={`text-xs sm:text-sm leading-snug transition-colors ${
-                            isDark ? 'text-[#DCE7F2]' : 'text-[#102B66]'
+                          className={`text-xs font-medium px-2.5 py-0.5 rounded-full transition-colors ${
+                            isDark ? 'bg-white/10 text-[#DCE7F2]' : 'bg-gray-100 text-[#64748B]'
                           }`}
                         >
-                          {resp}
+                          {exp.badge}
                         </span>
-                      </div>
-                    ))}
+                      )}
+                    </div>
+
+                    <span
+                      className={`text-xs font-mono font-medium flex items-center gap-1.5 transition-colors ${
+                        isDark ? 'text-[#DCE7F2]/80' : 'text-[#64748B]'
+                      }`}
+                    >
+                      <Calendar className="w-3.5 h-3.5" />
+                      {exp.period}
+                    </span>
+                  </div>
+
+                  {/* Role & Organization */}
+                  <div className="mb-4">
+                    <h3
+                      className={`text-xl sm:text-2xl font-bold tracking-tight transition-colors ${
+                        isDark ? 'text-white' : 'text-[#102B66]'
+                      }`}
+                    >
+                      {exp.role}
+                    </h3>
+                    <div className="flex items-center gap-2 mt-1">
+                      <span className="text-base font-semibold text-[#0868E8]">
+                        {exp.organization}
+                      </span>
+                      {exp.location && (
+                        <span className={`text-xs transition-colors ${isDark ? 'text-[#DCE7F2]/60' : 'text-[#64748B]'}`}>
+                          • {exp.location}
+                        </span>
+                      )}
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p
+                    className={`text-sm sm:text-base leading-relaxed mb-6 transition-colors ${
+                      isDark ? 'text-[#DCE7F2]/90' : 'text-[#64748B]'
+                    }`}
+                  >
+                    "{exp.description}"
+                  </p>
+
+                  {/* Responsibility Highlights */}
+                  {exp.responsibilities && exp.responsibilities.length > 0 && (
+                    <div className={`space-y-2.5 pt-4 border-t border-dashed transition-colors ${
+                      isDark ? 'border-white/15' : 'border-gray-200'
+                    }`}>
+                      <h4
+                        className={`text-xs font-bold uppercase tracking-wider font-mono mb-2 transition-colors ${
+                          isDark ? 'text-[#DCE7F2]/60' : 'text-[#64748B]'
+                        }`}
+                      >
+                        Key Responsibilities &amp; Focus
+                      </h4>
+                      {exp.responsibilities.map((resp, rIdx) => (
+                        <div key={rIdx} className="flex items-start gap-2.5">
+                          <CheckCircle2
+                            className="w-4 h-4 mt-0.5 shrink-0 text-[#0868E8]"
+                          />
+                          <span
+                            className={`text-xs sm:text-sm leading-snug transition-colors ${
+                              isDark ? 'text-[#DCE7F2]' : 'text-[#102B66]'
+                            }`}
+                          >
+                            {resp}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Organization Website Button (e.g. for Kromaxzon Technologies) */}
+                {exp.websiteUrl && (
+                  <div className={`mt-6 pt-4 border-t transition-colors ${
+                    isDark ? 'border-white/15' : 'border-gray-100'
+                  }`}>
+                    <a
+                      href={exp.websiteUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#0868E8] hover:bg-[#0756C2] text-white text-xs sm:text-sm font-semibold shadow-sm transition-all group cursor-pointer"
+                    >
+                      <span>Visit Website</span>
+                      <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </a>
                   </div>
                 )}
               </motion.div>
@@ -189,4 +209,3 @@ export const Experience: React.FC = () => {
     </section>
   );
 };
-

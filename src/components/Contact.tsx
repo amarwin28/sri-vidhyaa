@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Copy, Check, Clock, MessageSquare, CheckCircle2 } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Copy, Check, Clock, MessageSquare, CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { LinkedinIcon } from './SocialIcons';
 import { SectionHeading } from './SectionHeading';
 import { profileData } from '../data/profile';
@@ -219,7 +219,15 @@ export const Contact: React.FC = () => {
                 </div>
                 <div>
                   <span className="text-xs text-[#64748B] block font-mono">Current Association</span>
-                  <span className="text-sm font-bold text-[#102B66]">Media &amp; Growth — Kromaxzon Technologies</span>
+                  <a
+                    href="https://www.kromaxzon.in"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-bold text-[#102B66] hover:text-[#0868E8] inline-flex items-center gap-1 transition-colors"
+                  >
+                    <span>Media &amp; Growth — Kromaxzon Technologies</span>
+                    <ArrowUpRight className="w-3.5 h-3.5 text-[#0868E8]" />
+                  </a>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Mail, Phone, Heart } from 'lucide-react';
+import { ArrowUp, Mail, Phone, Heart, ArrowUpRight } from 'lucide-react';
 import { LinkedinIcon } from './SocialIcons';
 import { profileData } from '../data/profile';
 
@@ -136,9 +136,15 @@ export const Footer: React.FC = () => {
               <span className="text-xs font-semibold text-white block">
                 Media &amp; Growth Team
               </span>
-              <span className="text-xs text-[#0868E8] font-medium block">
-                Kromaxzon Technologies
-              </span>
+              <a
+                href="https://www.kromaxzon.in"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xs text-[#0868E8] hover:underline font-medium inline-flex items-center gap-1 transition-colors"
+              >
+                <span>Kromaxzon Technologies</span>
+                <ArrowUpRight className="w-3 h-3" />
+              </a>
               <span className="text-[11px] text-[#DCE7F2]/60 font-mono block">
                 2026 – Present • Chennai, India
               </span>

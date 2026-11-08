@@ -7,6 +7,7 @@ export const experienceData: Experience[] = [
     organization: 'Kromaxzon Technologies',
     period: '2026 – Present',
     badge: 'Current Role',
+    websiteUrl: 'https://www.kromaxzon.in',
     description: 'Contributing to media, content creation, communication, and growth initiatives at Kromaxzon Technologies.',
     responsibilities: [
       'Content creation and creative communication.',
@@ -16,6 +17,20 @@ export const experienceData: Experience[] = [
       'Contributing to brand visibility and digital presence.'
     ],
     isDarkNavy: true
+  },
+  {
+    id: 'lens-quick',
+    role: 'Brand Representative',
+    organization: 'Lens Quick',
+    period: '2026',
+    badge: 'Media & Brand',
+    description: 'Represented Lens Quick in promotional campaigns, brand videos, and creative marketing initiatives.',
+    responsibilities: [
+      'Represented the brand in promotional and marketing videos.',
+      'Presented brand services and communicated promotional messages.',
+      'Collaborated with the media and marketing team in content creation.',
+      'Contributed to brand awareness and audience engagement through visual communication.'
+    ]
   },
   {
     id: 'ideal-tech',
@@ -66,4 +81,3 @@ export const experienceData: Experience[] = [
     ]
   }
 ];
-
